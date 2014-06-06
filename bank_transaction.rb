@@ -1,7 +1,3 @@
-require 'pry'
-require 'csv'
-require_relative 'bank_account'
-
 class BankTransaction
   def initialize(date, amount, description, account_name)
     @date = date
@@ -19,7 +15,12 @@ class BankTransaction
   end
 
   def summary
-    # returns a string describing the transaction
+    if deposit?
+      type = 'DEPOSIT'
+    else
+      type = 'WITHDRAWAL'
+    end
+    "#{@amount} #{type}, #{@date} - #{@description}"
   end
 end
 
