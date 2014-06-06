@@ -1,9 +1,9 @@
 class BankTransaction
-  def initialize(date, amount, description, account_name)
+  attr_reader :date, :amount, :description
+  def initialize(date, amount, description)
     @date = date
     @amount = amount
     @description = description
-    @account_name = account_name
   end
 
   def deposit?
@@ -20,7 +20,6 @@ class BankTransaction
     else
       type = 'WITHDRAWAL'
     end
-    "#{@amount} #{type}, #{@date} - #{@description}"
+    "#{"%.02f" % @amount} #{type}, #{@date} - #{@description}"
   end
 end
-
