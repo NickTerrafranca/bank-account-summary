@@ -36,7 +36,7 @@ class BankAccount
   end
 
   def summary
-    @transactions.each  {|trans| puts trans.summary}
+    @transactions.each  { |trans| puts trans.summary }
   end
 
   def current_balance
@@ -46,5 +46,4 @@ class BankAccount
     end
     amount
   end
-
 end
